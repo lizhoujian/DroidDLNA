@@ -481,7 +481,7 @@ public class DevicesActivity extends Activity {
 				MediaStore.Video.Media.DESCRIPTION };
 		cursor = managedQuery(MediaStore.Video.Media.EXTERNAL_CONTENT_URI,
 				videoColumns, null, null, null);
-		if (cursor.moveToFirst()) {
+		if (cursor != null && cursor.moveToFirst()) {
 			do {
 				String id = ContentTree.VIDEO_PREFIX
 						+ cursor.getInt(cursor
@@ -561,7 +561,7 @@ public class DevicesActivity extends Activity {
 				MediaStore.Audio.Media.DURATION, MediaStore.Audio.Media.ALBUM };
 		cursor = managedQuery(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,
 				audioColumns, null, null, null);
-		if (cursor.moveToFirst()) {
+		if (cursor != null && cursor.moveToFirst()) {
 			do {
 				String id = ContentTree.AUDIO_PREFIX
 						+ cursor.getInt(cursor
@@ -652,7 +652,7 @@ public class DevicesActivity extends Activity {
 				imageColumns, null, null, MediaStore.Images.Media.DATA);
 
 		Container typeContainer = null;
-		if (cursor.moveToFirst()) {
+		if (cursor != null && cursor.moveToFirst()) {
 			do {
 				int imageId = cursor.getInt(cursor
 						.getColumnIndex(MediaStore.Images.Media._ID));

@@ -440,11 +440,11 @@ public class GPlayer extends Activity implements OnCompletionListener, OnErrorLi
             float widthRatio = (float) videoWidth / (float) currentDisplay.getWidth();
             if (heightRatio > 1 || widthRatio > 1) {
                 if (heightRatio > widthRatio) {
-                    videoHeight = (int) FloatMath.ceil((float) videoHeight / (float) heightRatio);
-                    videoWidth = (int) FloatMath.ceil((float) videoWidth / (float) heightRatio);
+                    videoHeight = (int) (float)Math.ceil((float) videoHeight / (float) heightRatio);
+                    videoWidth = (int) (float)Math.ceil((float) videoWidth / (float) heightRatio);
                 } else {
-                    videoHeight = (int) FloatMath.ceil((float) videoHeight / (float) widthRatio);
-                    videoWidth = (int) FloatMath.ceil((float) videoWidth / (float) widthRatio);
+                    videoHeight = (int) (float)Math.ceil((float) videoHeight / (float) widthRatio);
+                    videoWidth = (int) (float)Math.ceil((float) videoWidth / (float) widthRatio);
                 }
             }
         }
@@ -549,6 +549,8 @@ public class GPlayer extends Activity implements OnCompletionListener, OnErrorLi
             Log.v(LOGTAG, e.getMessage());
         } catch (IOException e) {
             Log.v(LOGTAG, e.getMessage());
+        } catch (Exception e) {
+            Log.e(LOGTAG, e.getMessage());
         }
     }
 
